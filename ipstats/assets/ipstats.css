@@ -1,0 +1,18 @@
+/* ipstats: panels of details, code lines, tool pages */
+.lead{font-size:1.08rem;color:var(--soft)}
+.me-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin:14px 0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin:14px 0}
+.me-grid .panel{margin:0}
+.panel h2{font-size:1.05rem;margin:0 0 .4em}
+.ua{font-size:.9rem;overflow-wrap:anywhere;background:var(--surface2);border-radius:8px;padding:10px 12px;margin:0}
+.result dl.facts dd.mono{font-family:var(--mono);font-weight:500;font-size:.95rem}
+pre.code{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;overflow-x:auto;font:500 .95rem/1.5 var(--mono);margin:10px 0}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface2);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+pre.code code{background:none;padding:0}
+.btn.sm,.chips a,.chips button{min-height:40px}
+.finder .chips{margin:10px 0 6px}
+.next{margin-top:26px}
+.grid a small{white-space:normal;text-align:right;max-width:55%}
+td.num,th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+tr[hidden]{display:none}
+@media print{.next,.btn{display:none!important}}

@@ -1,0 +1,14 @@
+/* pcfix / phonefix: fix pages, the "what you see" box, command lines */
+.lead{font-size:1.08rem;color:var(--soft)}
+.btn.sm,.chips a,.chips button{min-height:40px}
+.next{margin-top:26px}
+.msg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:10px 14px;font-family:var(--mono);font-size:.93rem;overflow-wrap:anywhere}
+.msg span{display:block;font:700 .74rem var(--font);text-transform:uppercase;letter-spacing:.06em;color:var(--soft);margin-bottom:3px}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface2);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+pre.code{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:12px 78px 12px 14px;overflow-x:auto;font:500 .95rem/1.6 var(--mono);margin:10px 0}
+pre.code code{background:none;padding:0;white-space:pre}
+pre.code .copy{position:absolute;top:6px;right:6px;min-height:40px;min-width:60px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 .85rem var(--font);cursor:pointer}
+.finder input{font-size:1.05rem}
+li[hidden],div[hidden]{display:none}
+.grid a{align-items:flex-start}
+@media print{.next,.btn,.copy,.finder{display:none!important}pre.code{padding-right:14px;white-space:pre-wrap}}

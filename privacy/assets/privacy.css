@@ -1,0 +1,28 @@
+/* privacy: guides, tickable checklists, the three tools */
+.lead{font-size:1.08rem;color:var(--soft)}
+.btn.sm,.chips a,.chips button{min-height:40px}
+.next{margin-top:26px}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface2);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+textarea{width:100%;min-height:130px;padding:10px 12px;font:inherit;font-size:1rem;color:var(--ink);background:var(--field);border:1px solid var(--field-line);border-radius:10px;resize:vertical}
+input[type=range]{width:100%;min-height:40px;accent-color:var(--accent)}
+.chk{display:flex;gap:10px;align-items:center;min-height:44px;font-weight:400;cursor:pointer}
+.chk input{width:22px;height:22px;flex:none;accent-color:var(--accent)}
+.finder .chips{margin:10px 0 6px}
+.urgent{display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;background:var(--surface);border:2px solid var(--bad);border-radius:var(--r);padding:14px 16px;margin:16px 0}
+.urgent>b{color:var(--bad);font-family:var(--font-head);font-size:1.08rem}
+ul.flags{list-style:none;padding:0;margin:12px 0}
+ul.flags li{border-left:4px solid var(--line);background:var(--surface2);border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.96rem}
+ul.flags li.high{border-color:var(--bad)}ul.flags li.mid{border-color:#d97706}ul.flags li.low{border-color:var(--soft)}ul.flags li.ok{border-color:var(--ok)}
+.lv-high{color:var(--bad)}.lv-mid{color:#b45309}.lv-none{color:var(--ok)}
+:root[data-theme=dark] .lv-mid{color:#fbbf24}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .lv-mid{color:#fbbf24}}
+.pw{font-size:clamp(1.15rem,.9rem + 1.6vw,1.7rem);letter-spacing:.02em;background:var(--surface2);border-radius:10px;padding:12px 14px;user-select:all}
+.result dl.facts dd.mono{font-family:var(--mono);font-weight:600}
+ol.steps{list-style:none;counter-reset:st;padding:0;margin:12px 0}
+ol.steps li{counter-increment:st;margin:10px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+ol.steps label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;cursor:pointer;min-height:48px}
+ol.steps input{width:22px;height:22px;flex:none;margin-top:3px;accent-color:var(--accent)}
+ol.steps span::before{content:counter(st) ". ";font-weight:700;color:var(--accent)}
+ol.steps li.done{opacity:.62}ol.steps li.done span{text-decoration:line-through;text-decoration-thickness:1px}
+li[hidden]{display:none}
+@media print{.next,.btn,.hint,.urgent .btn{display:none!important}ol.steps li{border:0;opacity:1!important}ol.steps span{text-decoration:none!important}}

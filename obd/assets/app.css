@@ -1,0 +1,17 @@
+/* obd: severity box, decoder */
+.kicker{color:var(--accent);font-size:1.05rem;margin:0 0 4px;letter-spacing:.06em}
+.sev{display:flex;flex-direction:column;gap:2px;border-radius:10px;padding:12px 14px;margin:6px 0 10px;border-left:6px solid var(--line);background:var(--surface)}
+.sev1{border-left-color:#16a34a}.sev2{border-left-color:#d97706}.sev3{border-left-color:#dc2626}
+.sev span{font-size:.95rem}
+#q{font-family:var(--mono);font-size:1.3rem;letter-spacing:.1em;text-transform:uppercase;max-width:260px}
+#q::placeholder{font-family:var(--font);font-size:1rem;letter-spacing:0;text-transform:none}
+.parts{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));list-style:none;padding:0;margin:12px 0}
+.parts li{background:var(--surface2);border-radius:10px;padding:10px 12px;font-size:.93rem}
+.parts b{display:block;font:500 1.3rem var(--mono);color:var(--accent)}
+.grid a span{min-width:0}
+.gloss dt{font-weight:700;font-family:var(--font-head);margin-top:16px;scroll-margin-top:80px}
+.gloss dd{margin:2px 0 0}
+tr:target td{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+tr[id]{scroll-margin-top:90px}
+.card h2{margin:0;font-size:1.1rem}
+@media print{.note{border:1px solid #999}}
