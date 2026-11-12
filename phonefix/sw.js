@@ -1,6 +1,6 @@
-const CACHE = 'syg-phonefix-cdc110db81', SHELL = ["/phonefix/assets/site.css?v=1f799d5064", "/phonefix/assets/site.js?v=be6129bb4a", "/phonefix/icons/logo-light.webp", "/phonefix/icons/logo-dark.webp"];
+const CACHE = 'syg-m-phonefix-cdc110db81', SHELL = ["/phonefix/assets/site.css?v=1f799d5064", "/phonefix/assets/site.js?v=be6129bb4a", "/phonefix/icons/logo-light.webp", "/phonefix/icons/logo-dark.webp"];
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).catch(() => {})); });
-self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.indexOf('syg-') === 0 && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
+self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.indexOf('syg-m-phonefix-') === 0 && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
   const r = e.request, u = new URL(r.url);
   if (r.method !== 'GET' || u.origin !== location.origin) return;
