@@ -1,4 +1,4 @@
-/* ipstats.shareyourgroup.com: every tool runs in the browser. Nothing typed here is sent anywhere.
+/* fix.shareyourgroup.com/ipstats: every tool runs in the browser. Nothing typed here is sent anywhere.
    The home page asks two public services for the address your connection shows to the internet (see /about/). */
 (function () {
   'use strict';
@@ -100,17 +100,17 @@
   IP.ua = function (u) {
     var b = 'Unknown browser', v = '', m, os = 'Unknown system', dev = 'Computer';
     var pick = function (re, name) { if (b === 'Unknown browser' && (m = re.exec(u))) { b = name; v = m[1]; } };
-    pick(/ipstats/Edg(?:e|A|iOS)?\/([\d.]+)/, 'Microsoft Edge'); pick(/ipstats/OPR\/([\d.]+)/, 'Opera'); pick(/ipstats/SamsungBrowser\/([\d.]+)/, 'Samsung Internet');
-    pick(/ipstats/UCBrowser\/([\d.]+)/, 'UC Browser'); pick(/ipstats/YaBrowser\/([\d.]+)/, 'Yandex Browser'); pick(/ipstats/Vivaldi\/([\d.]+)/, 'Vivaldi');
-    pick(/ipstats/FxiOS\/([\d.]+)/, 'Firefox'); pick(/ipstats/Firefox\/([\d.]+)/, 'Firefox'); pick(/ipstats/CriOS\/([\d.]+)/, 'Chrome'); pick(/ipstats/Chrome\/([\d.]+)/, 'Chrome');
-    pick(/ipstats/Version\/([\d.]+).*Safari/, 'Safari'); pick(/ipstats/MSIE ([\d.]+)/, 'Internet Explorer'); pick(/ipstats/Trident\/.*rv:([\d.]+)/, 'Internet Explorer');
+    pick(/Edg(?:e|A|iOS)?\/([\d.]+)/, 'Microsoft Edge'); pick(/OPR\/([\d.]+)/, 'Opera'); pick(/SamsungBrowser\/([\d.]+)/, 'Samsung Internet');
+    pick(/UCBrowser\/([\d.]+)/, 'UC Browser'); pick(/YaBrowser\/([\d.]+)/, 'Yandex Browser'); pick(/Vivaldi\/([\d.]+)/, 'Vivaldi');
+    pick(/FxiOS\/([\d.]+)/, 'Firefox'); pick(/Firefox\/([\d.]+)/, 'Firefox'); pick(/CriOS\/([\d.]+)/, 'Chrome'); pick(/Chrome\/([\d.]+)/, 'Chrome');
+    pick(/Version\/([\d.]+).*Safari/, 'Safari'); pick(/MSIE ([\d.]+)/, 'Internet Explorer'); pick(/Trident\/.*rv:([\d.]+)/, 'Internet Explorer');
     if ((m = /Windows NT ([\d.]+)/.exec(u))) os = m[1] === '10.0' ? 'Windows 10 or 11' : m[1] === '6.3' ? 'Windows 8.1' : m[1] === '6.1' ? 'Windows 7' : 'Windows (NT ' + m[1] + ')';
     else if ((m = /Android ([\d.]+)/.exec(u))) { os = 'Android ' + m[1]; dev = /Mobile/.test(u) ? 'Phone' : 'Tablet'; }
-    else if ((m = /(iPhone|iPad|iPod).*? OS ([\d_]+)/.exec(u))) { os = (m[1] === 'iPad' ? 'iPadOS ' : 'iOS ') + m[2].replace(/ipstats/_/g, '.'); dev = m[1] === 'iPad' ? 'Tablet' : 'Phone'; }
-    else if (/ipstats/CrOS/.test(u)) os = 'ChromeOS';
+    else if ((m = /(iPhone|iPad|iPod).*? OS ([\d_]+)/.exec(u))) { os = (m[1] === 'iPad' ? 'iPadOS ' : 'iOS ') + m[2].replace(/_/g, '.'); dev = m[1] === 'iPad' ? 'Tablet' : 'Phone'; }
+    else if (/CrOS/.test(u)) os = 'ChromeOS';
     else if ((m = /Mac OS X ([\d_.]+)/.exec(u))) os = 'macOS';
-    else if (/ipstats/Linux/.test(u)) os = 'Linux';
-    var eng = /Gecko\/\d/.test(u) && /Firefox/.test(u) ? 'Gecko' : /AppleWebKit/.test(u) ? (/ipstats/Chrome|CriOS|Edg|OPR/.test(u) && !/(iPhone|iPad)/.test(u) ? 'Blink' : 'WebKit') : /Trident/.test(u) ? 'Trident' : 'Unknown';
+    else if (/Linux/.test(u)) os = 'Linux';
+    var eng = /Gecko\/\d/.test(u) && /Firefox/.test(u) ? 'Gecko' : /AppleWebKit/.test(u) ? (/Chrome|CriOS|Edg|OPR/.test(u) && !/(iPhone|iPad)/.test(u) ? 'Blink' : 'WebKit') : /Trident/.test(u) ? 'Trident' : 'Unknown';
     return { browser: b, version: v, major: v.split('.')[0], os: os, device: dev, engine: eng };
   };
   IP.dur = function (sec) {
@@ -304,8 +304,8 @@
       if (!u) { show(out, '<p><b>Paste a user agent line, or tap "Use mine".</b></p>'); return; }
       var r = IP.ua(u);
       show(out, '<h2>' + S.esc(r.browser + (r.major ? ' ' + r.major : '')) + ' on ' + S.esc(r.os) + '</h2>' + facts([['Browser', r.browser], ['Full version in the line', r.version || 'Not stated'], ['System', r.os], ['Kind of device', r.device], ['Engine', r.engine]]) +
-        (/ipstats/Windows NT 10\.0/.test(u) ? '<p class="hint">The line says "Windows NT 10.0" on both Windows 10 and Windows 11, so a user agent alone cannot tell the two apart.</p>' : '') +
-        (/ipstats/Mac OS X 10_15_7/.test(u) ? '<p class="hint">Browsers on a Mac have kept the text "Mac OS X 10_15_7" for years, whatever the real macOS version is.</p>' : ''));
+        (/Windows NT 10\.0/.test(u) ? '<p class="hint">The line says "Windows NT 10.0" on both Windows 10 and Windows 11, so a user agent alone cannot tell the two apart.</p>' : '') +
+        (/Mac OS X 10_15_7/.test(u) ? '<p class="hint">Browsers on a Mac have kept the text "Mac OS X 10_15_7" for years, whatever the real macOS version is.</p>' : ''));
     }
     $('#u-go').addEventListener('click', run);
     $('#u-mine').addEventListener('click', function () { inp.value = navigator.userAgent; run(); });

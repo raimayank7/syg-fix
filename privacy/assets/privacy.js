@@ -1,4 +1,4 @@
-/* privacy.shareyourgroup.com: three tools and the tickable checklists. Everything runs in the browser.
+/* fix.shareyourgroup.com/privacy: three tools and the tickable checklists. Everything runs in the browser.
    Nothing typed or pasted here is sent anywhere or stored (the checklist ticks are kept in this browser only). */
 (function () {
   'use strict';
@@ -39,7 +39,7 @@
     if (out.scheme && out.scheme !== 'http' && out.scheme !== 'https') out.flags.push(['mid', 'It uses "' + out.scheme + '://", which is not an ordinary web page.']);
     if (out.userinfo !== undefined) out.flags.push(['high', 'It contains an "@" sign before the site name. Everything before the @ ("' + out.userinfo.slice(0, 40) + '") is ignored by the browser and is there only to mislead. The real site is what follows the @.']);
     if (out.ip) out.flags.push(['high', 'The site is given as a bare number, not a name. Genuine organisations use their names. Treat this as unsafe.']);
-    if (/privacy/xn--/.test(host)) out.flags.push(['high', 'The name contains "xn--", which means it uses letters from another script that can look exactly like English letters. This is a common way to imitate a known name.']);
+    if (/xn--/.test(host)) out.flags.push(['high', 'The name contains "xn--", which means it uses letters from another script that can look exactly like English letters. This is a common way to imitate a known name.']);
     if (/[\u0080-￿]/.test(host)) out.flags.push(['high', 'The name contains letters that are not plain English letters. They may be look-alikes of English letters.']);
     if (out.port && out.port !== '80' && out.port !== '443') out.flags.push(['mid', 'It names a port number (:' + out.port + '). Ordinary websites do not need one.']);
     if (!out.ip) {
@@ -49,12 +49,12 @@
       var looks = (out.sub || '').match(/(?:^|\.)([a-z0-9-]+\.(?:com|in|org|net|gov|co))(?:\.|$)/);
       if (looks) out.flags.push(['high', 'A different site name ("' + looks[1] + '") appears in front of the real domain. It is only a label. The site belongs to ' + out.domain + '.']);
       if (P.ODD.indexOf(labels[labels.length - 1]) > -1) out.flags.push(['mid', 'The ending ".' + labels[labels.length - 1] + '" is cheap to register and is used by many fraud pages. A genuine site can use it, but check carefully whose site this is.']);
-      var hy = (out.name.match(/privacy/-/g) || []).length;
+      var hy = (out.name.match(/-/g) || []).length;
       if (hy >= 2) out.flags.push(['mid', 'The domain name has several hyphens. Names stitched together with hyphens are typical of imitation sites.']);
       var bait = P.BAIT.filter(function (w) { return out.name.split('-').indexOf(w) > -1 || subWords.indexOf(w) > -1; });
       if (bait.length) out.flags.push(['mid', 'The name uses the word' + (bait.length > 1 ? 's' : '') + ' "' + bait.slice(0, 4).join('", "') + '". Organisations rarely put such words in their address; fraud pages often do.']);
       if (/\d/.test(out.name) && /[a-z]/.test(out.name) && /[a-z]\d[a-z]|^[a-z]+\d+$/.test(out.name) && out.name.length > 5) out.flags.push(['low', 'The name mixes letters and digits. Check that a digit has not replaced a letter (0 for o, 1 for l).']);
-      if (/privacy/rn|vv|ii/.test(out.name)) out.flags.push(['low', 'The name contains "' + /rn|vv|ii/.exec(out.name)[0] + '", which can be made to look like another letter (rn looks like m, vv like w). Read it letter by letter.']);
+      if (/rn|vv|ii/.test(out.name)) out.flags.push(['low', 'The name contains "' + /rn|vv|ii/.exec(out.name)[0] + '", which can be made to look like another letter (rn looks like m, vv like w). Read it letter by letter.']);
       if (out.name.length > 25) out.flags.push(['low', 'The domain name is unusually long.']);
       if (/\.gov\.in$|\.nic\.in$/.test('.' + out.domain)) out.good.push('The domain ends in .' + out.tld + ', which is reserved for Indian government bodies.');
     }
