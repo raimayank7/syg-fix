@@ -5,7 +5,7 @@
   var KEY = 'syg-obd-recent';
 
   var art = $('[data-g]');
-  if (art) S.recent(KEY, { u: '/' + art.getAttribute('data-g') + '/', t: art.getAttribute('data-name') });
+  if (art) S.recent(KEY, { u: '/obd/' + art.getAttribute('data-g') + '/', t: art.getAttribute('data-name') });
 
   /* list filter (several tables on one page) */
   var lq = $('#lq');
@@ -45,9 +45,9 @@
     var hit = DATA[v], gen = generic(v), area = AREA[v[0]];
     var html = '<h2>' + v + (hit ? ': ' + S.esc(hit[0]) : '') + '</h2>';
     if (hit) {
-      html += '<p><b>How serious: ' + SEV[hit[3]] + '.</b> This code belongs to the group "' + S.esc(hit[2]) + '".</p><div class="acts"><a class="btn" href="/obd/' + hit[1] + '/obd/#' + v.toLowerCase() + '">Read the full explanation</a>' +
+      html += '<p><b>How serious: ' + SEV[hit[3]] + '.</b> This code belongs to the group "' + S.esc(hit[2]) + '".</p><div class="acts"><a class="btn" href="/obd/' + hit[1] + '/#' + v.toLowerCase() + '">Read the full explanation</a>' +
         '<button class="btn ghost" type="button" data-copy="' + S.esc(v + ': ' + hit[0] + ' https://fix.shareyourgroup.com/obd/' + hit[1] + '/') + '">Copy</button></div>';
-      S.recent(KEY, { u: '/' + hit[1] + '/obd/#' + v.toLowerCase(), t: v + ' ' + hit[2] });
+      S.recent(KEY, { u: '/obd/' + hit[1] + '/#' + v.toLowerCase(), t: v + ' ' + hit[2] });
     } else if (!gen) {
       html += '<p><b>This is a maker-specific code.</b> Each car maker gives it its own meaning, so it differs between brands. Look it up in the workshop information for your make, or ask a dealer or specialist. The breakdown below still tells you which area of the car it belongs to.</p>';
     } else {

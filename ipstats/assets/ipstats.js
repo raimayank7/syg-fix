@@ -199,7 +199,7 @@
   var sub = $('[data-tool=subnet]');
   if (sub) (function () {
     var ipEl = $('#s-ip'), pEl = $('#s-prefix'), out = $('#s-out');
-    for (var p = 32; p >= 1; p--) { var o = d.createElement('option'); o.value = p; o.textContent = '/' + p + '  (' + IP.str(IP.mask(p)) + ')'; if (p === 24) o.selected = true; pEl.appendChild(o); }
+    for (var p = 32; p >= 1; p--) { var o = d.createElement('option'); o.value = p; o.textContent = '/ipstats/' + p + '  (' + IP.str(IP.mask(p)) + ')'; if (p === 24) o.selected = true; pEl.appendChild(o); }
     function run() {
       var raw = ipEl.value.trim(), m = /^(.*?)\/(\d{1,2})$/.exec(raw);
       if (m && +m[2] >= 1 && +m[2] <= 32) { raw = m[1]; pEl.value = +m[2]; }
