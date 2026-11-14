@@ -1,0 +1,17 @@
+/* errors: message box, code and output blocks */
+.lead{font-size:1.08rem;color:var(--soft)}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface2);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+.msg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:10px 14px;font-family:var(--mono);font-size:.93rem;overflow-wrap:anywhere}
+.msg span{display:block;font:700 .74rem var(--font);text-transform:uppercase;letter-spacing:.06em;color:var(--soft);margin-bottom:3px}
+.runlabel{font:700 .8rem var(--font);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin:14px 0 4px}
+pre.code,pre.out{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:12px 78px 12px 14px;overflow-x:auto;font:500 .9rem/1.55 var(--mono);margin:4px 0 10px}
+pre.out{padding-right:14px;border-left:4px solid var(--bad)}
+pre.code code,pre.out code{background:none;padding:0;white-space:pre}
+pre.code .copy{position:absolute;top:6px;right:6px;min-height:40px;min-width:60px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 .85rem var(--font);cursor:pointer}
+.runout{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.finder textarea{width:100%;min-height:96px;padding:10px 12px;font:inherit;font-size:1rem;color:var(--ink);background:var(--field);border:1px solid var(--field-line);border-radius:10px;resize:vertical;box-sizing:border-box}
+.btn.sm,.chips a,.chips button{min-height:40px}
+.grid a{align-items:flex-start;flex-direction:column}.grid a small{color:var(--soft);white-space:normal;overflow-wrap:anywhere}
+li[hidden]{display:none}
+.next{margin-top:26px}
+@media print{.next,.btn,.copy,.finder{display:none!important}pre.code{padding-right:14px}}

@@ -1,4 +1,4 @@
-const CACHE = 'syg-m-pcfix-cdc110db81', SHELL = ["/pcfix/assets/site.css?v=1f799d5064", "/pcfix/assets/site.js?v=be6129bb4a", "/pcfix/icons/logo-light.webp", "/pcfix/icons/logo-dark.webp"];
+const CACHE = 'syg-m-pcfix-5f0e96f5c0', SHELL = ["/pcfix/assets/site.css?v=bdcd893b36", "/pcfix/assets/site.js?v=be6129bb4a", "/pcfix/icons/logo-light.webp", "/pcfix/icons/logo-dark.webp"];
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).catch(() => {})); });
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.indexOf('syg-m-pcfix-') === 0 && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
