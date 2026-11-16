@@ -1,4 +1,4 @@
-const CACHE = 'syg-m-hostguide-5f0e96f5c0', SHELL = ["/hostguide/assets/site.css?v=bdcd893b36", "/hostguide/assets/site.js?v=be6129bb4a", "/hostguide/icons/logo-light.webp", "/hostguide/icons/logo-dark.webp"];
+const CACHE = 'syg-m-hostguide-5010c6a73a', SHELL = ["/hostguide/assets/site.css?v=403176beac", "/hostguide/assets/site.js?v=38b96724e9", "/hostguide/icons/logo-light.webp", "/hostguide/icons/logo-dark.webp"];
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).catch(() => {})); });
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.indexOf('syg-m-hostguide-') === 0 && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {

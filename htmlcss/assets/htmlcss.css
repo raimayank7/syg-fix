@@ -1,9 +1,10 @@
 /* htmlcss: generator layout, previews, preset cards */
 .lead{font-size:1.08rem;color:var(--soft)}
 code{font-family:var(--mono);font-size:.92em;background:var(--surface2);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
-pre.code{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:12px 78px 12px 14px;overflow-x:auto;font:500 .93rem/1.55 var(--mono);margin:10px 0}
+pre.code{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:50px 14px 12px;overflow-x:auto;font:500 .93rem/1.55 var(--mono);margin:10px 0}
 pre.code code{background:none;padding:0;white-space:pre}
 pre.code .copy{position:absolute;top:6px;right:6px;min-height:40px;min-width:60px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 .85rem var(--font);cursor:pointer}
+pre.out{padding:12px 14px}
 .gen-wrap{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
 @media (min-width:860px){.gen-wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}.gen-wrap .pv{position:sticky;top:12px}}
 .gen-ctl{margin:0}.gen-ctl label{display:flex;justify-content:space-between;gap:8px}.gen-ctl output{font:600 .85rem var(--mono);color:var(--soft)}

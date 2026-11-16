@@ -1,4 +1,4 @@
-const CACHE = 'syg-m-gitcheat-5f0e96f5c0', SHELL = ["/gitcheat/assets/site.css?v=bdcd893b36", "/gitcheat/assets/site.js?v=be6129bb4a", "/gitcheat/icons/logo-light.webp", "/gitcheat/icons/logo-dark.webp"];
+const CACHE = 'syg-m-gitcheat-5010c6a73a', SHELL = ["/gitcheat/assets/site.css?v=403176beac", "/gitcheat/assets/site.js?v=38b96724e9", "/gitcheat/icons/logo-light.webp", "/gitcheat/icons/logo-dark.webp"];
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).catch(() => {})); });
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.indexOf('syg-m-gitcheat-') === 0 && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
